@@ -10,9 +10,12 @@ class Deliver extends Controller
     public function getLogin()
     {
     	if(!Auth::check())
-    		return view('admindeliver.signin');
+    		return view('admindeliver.signin')->with('a','1');
     	else
+        {
+
     		return redirect('deliver_admin');
+        }
     }
     public function postLogin(Request $request)
     {
@@ -26,7 +29,7 @@ class Deliver extends Controller
             return redirect('deliver_admin');
         }
         else
-        	return redirect()->back();
+        	return redirect()->back()->with('error_login','Login unsuccessful');
     }
     public function getLogOut()
     {

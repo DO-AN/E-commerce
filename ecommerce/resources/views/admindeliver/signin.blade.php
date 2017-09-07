@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,12 +11,18 @@
     <link href="{!!asset('ec/template/css/bootstrap.min.css')!!}" rel="stylesheet">
     <link href="{!!asset('ec/template/css/signin.css')!!}" rel="stylesheet">
   </head>
-  <body>
-
+  <body> -->
+@extends('admindeliver.master')
+@section('content')
+<link href="{!!asset('ec/template/css/signin.css')!!}" rel="stylesheet">
     <div class="container">
-
       <form class="form-signin" action="" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @if(session('error_login'))
+          <div class="alert alert-danger text-center">
+            {{session('error_login')}}
+          </div>
+        @endif
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" name="txtemail" class="form-control" placeholder="Email address" required autofocus>
@@ -29,3 +35,4 @@
     </div> 
   </body>
 </html>
+@endsection

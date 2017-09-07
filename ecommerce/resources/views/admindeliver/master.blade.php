@@ -14,6 +14,7 @@
 					<a class="navbar-brand" href="{!! route('index') !!}">
 						<p class="m-0">August.6th |</p>
 					</a>
+					@if(!isset($a))
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
 							<a class="nav-link" href="{!! route('manage') !!}">Manage Orders</a>
@@ -22,21 +23,28 @@
 							<a class="nav-link" href="{!! route('statistic') !!}">Statistics</a>
 						</li>
 					</ul>
+					@endif
 					<!-- <form class="form-inline my-2 my-lg-0 ml-1">
 					    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
 					    <button class="btn btn-outline-info my-2 my-sm-0" type="submit" disabled>Search</button>
 					</form> -->
 					</nav>
 				</div>
+				@if(!isset($a))
 				<div class="col-md-3 my-auto">
 					<div class="dropdown d-inline-block">
-						<div class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">{!! Auth::user()->first_name !!} {!! Auth::user()->last_name !!}</div>
+						<div class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">
+							
+								{!! Auth::user()->first_name !!} {!! Auth::user()->last_name !!}
+							
+						</div>
 						<div class="dropdown-menu">
 							<a href="{!! route('accounts') !!}" class="btn-outline-secondary dropdown-item">Manage Account</a>
 							<a class="btn-outline-secondary dropdown-item" href="{!! url('deliver/logout') !!}">Log Out <img src="{!!asset('ec/template/images/icon/png/log-out.png')!!}" alt="log-out"></a>
 						</div>
 					</div>
 				</div>
+				@endif
 			</div>
 		</div><!--Het container -->
 	</div><!--Het Header-->
